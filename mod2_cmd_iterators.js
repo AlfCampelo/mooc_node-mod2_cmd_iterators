@@ -8,4 +8,11 @@ console.log("Route to node.js: " + rutaNode);
 //imprime en pantalla ruta al fichero
 console.log("Route to this file: " + rutaFichero);
 
+//busca mientras exista "-r" en el array
+while(parametros.find(elem => elem === "-r")){
+	let indiceR = parametros.findIndex(elem => elem === "-r");
+	console.log("indiceR = " + indiceR);
+	//elimina "-r" y el parametro que lo sigue
+	parametros.splice(indiceR, 2);
+}
 
