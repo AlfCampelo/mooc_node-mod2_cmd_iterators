@@ -31,8 +31,10 @@ console.log();
 
 //declaración y multiasignación de variables
 let [rutaNode, rutaFichero, parametros] = [process.argv[0], process.argv[1], process.argv.slice(2)];
+
 //imprime en pantalla ruta a node.js 
 console.log("Route to node.js: " + rutaNode); 
+
 //imprime en pantalla ruta al fichero
 console.log("Route to this file: " + rutaFichero);
 
@@ -43,11 +45,45 @@ parametros.forEach((val, index) => {
 //Linea en blanco
 console.log();
 
-
+//Busca el parametro -r
 buscarR();
-//ordena el array
-parametros.sort();
-
+console.log();
+console.log("antes de ordenar");
 parametros.forEach((val, index) => {
 	console.log(`${index}: ${val}`);
 });
+//ordena el array
+parametros.sort();
+
+console.log(parametros);
+
+console.log("despues de ordenar");
+parametros.forEach((val, index) => {
+	console.log(`${index}: ${val}`);
+});
+console.log();
+console.log("antes de reducir");
+
+function reducir(){	
+	let cont = 1;	 
+	parametros.reduce((contador, actual, i, a) => 
+		{	
+			if(actual === a[i-1]){			 	
+				cont++;
+			}else{
+				console.log(a[i-1] +":" + cont);
+				cont = 1;
+			}
+			if(i === a.length - 1){
+				console.log(actual + ":" + cont);
+			}
+		});
+}
+
+reducir();
+/*
+
+console.log();
+parametros.forEach((val, index) => {
+	console.log(`${index}: ${val}`);
+});*/
