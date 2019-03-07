@@ -64,9 +64,11 @@ parametros.forEach((val, index) => {
 console.log();
 console.log("antes de reducir");
 
+//recorre el array contando el número de parametros iguales
+// y mostrandolos en pantalla
 function reducir(){	
-	let cont = 1;	 
-	parametros.reduce((contador, actual, i, a) => 
+	let cont = 1;//inicializa contador de parametros	 
+	parametros.reduce((acc, actual, i, a) => 
 		{	
 			if(actual === a[i-1]){			 	
 				cont++;
